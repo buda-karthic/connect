@@ -1,0 +1,88 @@
+@use '../../styles/variables' as *;
+
+/* Product Card Block */
+.productCard {
+  overflow: hidden;
+  transition: all $transition-fast;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-8px);
+
+    .productCard__image {
+      transform: scale(1.05);
+    }
+  }
+
+  &__imageContainer {
+    position: relative;
+    width: 100%;
+    height: 325px;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-fast;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    font-size: 1.13rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: $color-text-primary;
+
+    &--buy {
+      background: $color-success;
+      color: white;
+    }
+
+    &--offer {
+      background: $color-warning;
+      color: white;
+    }
+
+    &--auction {
+      background: $color-error;
+      color: white;
+    }
+  }
+
+  &__info {
+    padding: $spacing-md 0;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: $spacing-xs;
+    color: $color-text-secondary;
+    line-height: 1.4;
+    max-width: 70%;
+  }
+
+  &__creator {
+    color: $color-text-secondary;
+    font-size: 0.9rem;
+    margin-bottom: $spacing-sm;
+    flex: 0 0 100%;
+  }
+
+  &__price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $color-text-primary;
+    position: absolute;
+    right: 0;
+    top: 20px;
+  }
+}

@@ -1,0 +1,38 @@
+@use './styles/variables' as *;
+
+/* Global reset and overrides */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: $color-bg-primary !important;
+}
+
+body {
+  font-family: $font-family-primary !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $color-text-dark !important;
+  line-height: 1.6;
+  display: block !important;
+  place-items: unset !important;
+  min-height: 100vh;
+}
+
+/* App Block */
+.app {
+  min-height: 100vh;
+}
+
+.main {
+  max-width: $breakpoint-lg;
+  margin: 0 auto;
+
+  /* Responsive main content */
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-sm;
+  }
+}

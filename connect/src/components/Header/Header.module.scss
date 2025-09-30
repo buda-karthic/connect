@@ -1,0 +1,42 @@
+@use '../../styles/variables' as *;
+
+/* Header Block */
+.header {
+  padding-block: $spacing-sm;
+  box-shadow: 0 -1px 0 0 $color-border inset;
+  background-color: $color-bg-secondary;
+
+  /* Responsive modifiers */
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-sm;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: $breakpoint-lg;
+    margin: 0 auto;
+  }
+
+  &__logoIcon {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__logoText {
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1.25rem;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      font-size: 1.125rem;
+    }
+  }
+}

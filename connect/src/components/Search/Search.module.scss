@@ -1,0 +1,199 @@
+@use '../../styles/variables' as *;
+
+/* Search Block */
+.search {
+  color: white;
+  padding: $spacing-lg 0;
+  text-align: center;
+  max-width: $breakpoint-lg;
+  margin: 0 auto;
+
+  .css {
+    fill: $color-text-primary;
+    color: $color-text-primary;
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Responsive modifiers */
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md $spacing-sm;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    padding: 1.5rem $spacing-sm;
+  }
+
+  &__inputContainer {
+    position: relative;
+
+    @media (max-width: $breakpoint-sm) {
+      max-width: 100%;
+      margin: 0 $spacing-sm $spacing-sm;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: $spacing-sm 3rem $spacing-sm $spacing-sm;
+    font-size: 1.1rem;
+    border: 1px solid transparent;
+    border-radius: $radius-md;
+    outline: none;
+    backdrop-filter: blur(10px);
+    transition: all $transition-fast;
+    color: #fff;
+
+    &:focus {
+      border: 1px solid $color-brand-primary;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: $spacing-sm;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: $color-text-muted;
+    pointer-events: none;
+    height: 24px;
+  }
+
+  &__resultsCount {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-top: $spacing-xs;
+    display: none;
+  }
+
+  &__title {
+    @media (max-width: $breakpoint-sm) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      font-size: 1.8rem;
+    }
+  }
+
+  /* Filter container */
+  &__filterContainer {
+    margin-top: $spacing-sm;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__filterCheckboxes {
+    display: flex;
+    gap: $spacing-md;
+    background: $color-bg-overlay;
+    padding: $spacing-sm;
+    border-radius: $radius-lg;
+    backdrop-filter: blur(10px);
+    width: 100%;
+
+    @media (max-width: $breakpoint-sm) {
+      flex-wrap: wrap;
+      gap: $spacing-sm;
+      padding: 0.8rem;
+    }
+  }
+
+  &__filterLabel {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    cursor: pointer;
+    color: $color-text-primary;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all $transition-fast;
+
+    &:hover {
+      color: $color-brand-primary;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 0.8rem;
+    }
+  }
+
+  &__filterCheckbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid $color-text-muted;
+    border-radius: $radius-sm;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: all $transition-fast;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:checked {
+      background: $color-brand-primary;
+      border-color: $color-brand-primary;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 16px;
+        height: 16px;
+        background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M13.3333 16H2.66667C1.2 16 0 14.8 0 13.3333V2.66667C0 1.2 1.2 0 2.66667 0H13.3333C14.8 0 16 1.2 16 2.66667V13.3333C16 14.8 14.8 16 13.3333 16Z' fill='%2342CDDD'/><path fill-rule='evenodd' clip-rule='evenodd' d='M12.9111 2.5L6.12222 9.28889L3.08889 6.4L1.5 7.98889L6.12222 12.6111L14.5 4.08889L12.9111 2.5Z' fill='%232E2E33'/></svg>");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
+    &:hover {
+      border-color: $color-brand-primary;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__filterText {
+    user-select: none;
+  }
+
+  &__resetButton {
+    background: transparent;
+    color: $color-text-primary;
+    border-radius: $radius-md;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all $transition-fast;
+    margin-left: auto;
+    padding: 0;
+    border: none;
+
+    &:hover {
+      color: $color-brand-primary;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      margin-left: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.filter__label {
+  color: $color-text-secondary;
+}

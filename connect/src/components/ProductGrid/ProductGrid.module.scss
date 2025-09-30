@@ -1,0 +1,40 @@
+@use '../../styles/variables' as *;
+
+/* Product Grid Block */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-sm;
+
+  /* Media queries */
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  /* Responsive grid modifiers */
+  &--threeColumns {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+  }
+
+  &--twoColumns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+
+  &--oneColumn {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
