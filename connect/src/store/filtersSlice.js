@@ -1,11 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { getFiltersFromUrl } from '../utils/urlUtils'
+
+// Initialize state from URL parameters
+const getInitialState = () => {
+  try {
+    return getFiltersFromUrl();
+  } catch (error) {
+    console.warn('Failed to parse URL parameters, using default state:', error);
+    return {
+      searchTerm: '',
+      pricingFilter: [],
+    };
+  }
+};
 
 const filtersSlice = createSlice({
   name: 'filters',
-  initialState: {
-    searchTerm: '',
-    pricingFilter: [],
-  },
+  initialState: getInitialState(),
   reducers: {
     setSearchTerm: (state, action) => {
       state.searchTerm = action.payload

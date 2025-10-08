@@ -16,6 +16,7 @@ import {
   selectSearchTerm,
   selectPricingFilter
 } from './store/selectors'
+import { updateUrlWithFilters } from './utils/urlUtils'
 
 function App() {
   const dispatch = useDispatch()
@@ -31,6 +32,14 @@ function App() {
   useEffect(() => {
     dispatch(fetchProducts())
   }, [dispatch])
+
+  // Sync URL with Redux state changes
+  useEffect(() => {
+    updateUrlWithFilters({
+      searchTerm,
+      pricingFilter
+    })
+  }, [searchTerm, pricingFilter])
 
   // Format price to USD currency
   const formatPrice = (amount) => {
